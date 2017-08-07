@@ -1,0 +1,49 @@
+#box {
+    width: 390px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -195px;
+    margin-top: -137px;
+    padding: 20px 0;
+    text-align: center;
+    border: 1px solid rgb(241, 241, 241);
+    background-color: rgb(250, 250, 250);
+}
+
+#userName, #passWord {
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    width: 350px;
+    height: 50px;
+    font-size: 16px;
+}
+
+#noPwd_box {
+    width: 350px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+}
+
+#noPwd {
+    float: right;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#submit {
+    width: 350px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-size: 22px;
+    font-weight: lighter;
+    color: white;
+    background-color: rgb(135, 184, 139);
+}
+
+#submit:hover {
+    background-color: rgb(99, 164, 100);
+}

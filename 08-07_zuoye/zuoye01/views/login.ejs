@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录页面</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href='/stylesheets/login.css'>
+</head>
+<body>
+<div id="box">
+    <form action="/loginSuccess" method="post" id="theForm">
+        <input type="text" name="username" id="userName" placeholder="请输入已验证手机/邮箱">
+        <input type="password" name="password" id="passWord" placeholder="请输入密码">
+        <div id="noPwd_box">
+            <a href="" id="noPwd">忘记密码?</a>
+        </div>
+        <input type="submit" id="submit" value="登录">
+    </form>
+</div>
+</body>
+</html>

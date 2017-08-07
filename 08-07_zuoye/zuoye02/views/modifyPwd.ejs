@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改密码页面</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href='/stylesheets/modPwd.css'>
+</head>
+<body>
+<div id="box">
+    <form action="/modifyPwdSuc" method="post" id="theForm">
+        <div>
+            <span>账号:</span>
+            <input type="text" name="username" id="userName">
+        </div>
+        <div>
+            <span>密码:</span>
+            <input type="password" name="password" id="passWord">
+        </div>
+        <div>
+            <span>确认密码:</span>
+            <input type="password" name="password1" id="passWord1">
+        </div>
+        <input type="submit" id="submit" value="保存">
+    </form>
+</div>
+<script src="/javascripts/modifyPwd.js"></script>
+</body>
+</html>
