@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+<div id="nav"></div>
+<script type="text/babel">
+    var titleArr = ['编程', '读书', 'Java教程', 'JavaScript教程', 'Python教程', 'Git教程', '问答', '赞助'];
+    var element = (
+            <div id="nav-box">
+                <ul>
+                    <li><a href="">廖雪峰的官方网站</a></li>
+                    {
+                        titleArr.map(function (title, index) {
+                            return <li key={index}><a href="">{title}</a></li>
+                        })
+                    }
+                </ul>
+                <div>
+                    <a href="">登录</a>
+                </div>
+            </div>
+    );
+    ReactDOM.render(
+            element,
+            document.getElementById('nav')
+    )
+</script>
+</body>
+</html>
