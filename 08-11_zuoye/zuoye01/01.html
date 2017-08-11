@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.js"></script>
+    <style>
+        body {
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+        #input-box {
+            width: 480px;
+            margin: auto;
+        }
+
+        #input-content-box {
+            width: 440px;
+            border: 20px solid rgb(70, 129, 166);
+            border-radius: 5px;
+            background-color: rgb(70, 129, 166);
+        }
+
+        #input-content {
+            width: 440px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.6rem;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid rgb(70, 129, 166);
+            color: rgb(111, 111, 111);
+        }
+
+        #p-content {
+            text-align: center;
+            word-break: break-all;
+            word-wrap: break-word;
+            padding: 20px;
+            font-size: 2rem;
+            color: rgb(80, 102, 109);
+        }
+
+        #qbImg {
+            vertical-align: middle
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/babel">
+    class EditMe extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {value: 'edit me'}
+        }
+
+        changeValue(event) {
+            this.setState({
+                value: event.target.value
+            })
+        }
+
+        render() {
+            return (
+                    <div id="input-box">
+                        <div id="input-content-box">
+                            <input type="text" id="input-content" value={this.state.value}
+                                   onChange={this.changeValue.bind(this)}/>
+                        </div>
+                        <div id="p-content">
+                            <img src="1.png" id="qbImg" alt=""/>
+                            ️{this.state.value}
+                        </div>
+                    </div>
+            )
+        }
+    }
+    ReactDOM.render(
+            <EditMe/>,
+            document.getElementById('box')
+    )
+</script>
+</body>
+</html>
