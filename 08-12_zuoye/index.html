@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知乎日报</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    var imgArr1 = [];
+    var imgArr2 = [];
+    var imgArr3 = [];
+    for (var i = 0; i < 10; i++) {
+        imgArr1.push('image/' + i + '.jpg');
+    }
+    for (var k = 10; k < 20; k++) {
+        imgArr2.push('image/' + k + '.jpg');
+    }
+    for (var j = 20; j < 30; j++) {
+        imgArr3.push('image/' + j + '.jpg');
+    }
+
+    // 头部
+    class Header extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {color1: 'header-click1', color2: 'header-click2'}
+        }
+
+        click1() {
+            this.setState({
+                color1: 'header-click1',
+                color2: 'header-click2'
+            })
+        }
+
+        click2() {
+            this.setState({
+                color1: 'header-click2',
+                color2: 'header-click1',
+            })
+        }
+
+        render() {
+            return (
+                    <div id="header">
+                        <div id="header-box">
+                            <div id="header-logo-box">
+                                <a href="" id="header-logo">
+                                    <img src="images/download.png" alt="" id="logo"/>
+                                </a>
+                            </div>
+                            <div id="header-app-box">
+                                <span id="header-app" onClick={this.click1.bind(this)}
+                                      className={this.state.color1}>App 下载</span>
+                                <span id="header-content" onClick={this.click2.bind(this)}
+                                      className={this.state.color2}>浏览内容</span>
+                            </div>
+                        </div>
+                    </div>
+            )
+        }
+    }
+    // 大图片
+    class BigImg extends React.Component {
+        render() {
+            return (
+                    <div id="big-box">
+                        <div id="bigImg-box">
+                            <div id="img-box">
+                                <img src="images/0.png" alt="" id="bigImg"/>
+                            </div>
+                            <div id="imgContent-box">
+                                <div id="img-title">每天三次 每次七分钟</div>
+                                <div id="img-content">在中国，资讯类移动应用的人均阅读时长是 5 分钟，而在知乎日报，这个数字是 21。</div>
+                                <div id="img-version">
+                                    <div id="qr-box">
+                                        <img src="images/1.png" alt="" id="qr"/>
+                                    </div>
+                                    <div id="version-box">
+                                        <div className="ia-box bor-all5">
+                                            <a href="" className="ia-a">
+                                                <img src="images/download-1.png" alt="" className="ia-logo"/>
+                                                <span className="ia-version">iOS版</span>
+                                            </a>
+                                        </div>
+                                        <div id="ia-more-box">
+                                            <div className="ia-box bor-all5" id="ia-block">
+                                                <a href="" className="ia-a">
+                                                    <img src="images/download-6.png" alt="" className="ia-logo"/>
+                                                    <span className="ia-version">Android版</span>
+                                                </a>
+                                            </div>
+                                            <ul id="ia-none-box">
+                                                <li className="ia-box">
+                                                    <a href="" className="ia-a ">
+                                                        <img src="images/download-2.png" alt="" className="ia-logo"/>
+                                                        <span className="ia-version">豌豆荚</span>
+                                                    </a>
+                                                </li>
+                                                <li className="ia-box">
+                                                    <a href="" className="ia-a">
+                                                        <img src="images/download-3.png" alt="" className="ia-logo"/>
+                                                        <span className="ia-version">91市场</span>
+                                                    </a>
+                                                </li>
+                                                <li className="ia-box bor-b5">
+                                                    <a href="" className="ia-a">
+                                                        <img src="images/download-4.png" alt="" className="ia-logo"/>
+                                                        <span className="ia-version">360市场</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            )
+        }
+    }
+    // 主体
+    class Main extends React.Component {
+        render() {
+            return (
+                    <div id="main">
+                        <div id="main-box">
+                            <div id="main-up">
+                                <div id="main-up-browse">浏览内容</div>
+                                <div id="main-up-newest">最新内容</div>
+                            </div>
+                            <div id="main-content">
+                                <div className="col-4 marR-30">
+                                    <ul className="img-list-ul">
+                                        {
+                                            imgArr1.map(function (item, index) {
+                                                return (
+                                                        <li key={index} className="img-list-li">
+                                                            <div className="img-list-box">
+                                                                <a href="">
+                                                                    <img src={item} alt="" className="img-list"/>
+                                                                </a>
+                                                            </div>
+                                                            <div className="img-title-box">
+                                                                <a href=""
+                                                                   className="img-title">铁甲、机器人，为什么这类动画和电影总是让我们着迷？</a>
+                                                            </div>
+                                                        </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                                <div className="col-4 marR-30">
+                                    <ul className="img-list-ul">
+                                        {
+                                            imgArr2.map(function (item, index) {
+                                                return (
+                                                        <li key={index} className="img-list-li">
+                                                            <div className="img-list-box">
+                                                                <a href="">
+                                                                    <img src={item} alt="" className="img-list"/>
+                                                                </a>
+                                                            </div>
+                                                            <div className="img-title-box">
+                                                                <a href=""
+                                                                   className="img-title">铁甲、机器人，为什么这类动画和电影总是让我们着迷？</a>
+                                                            </div>
+                                                        </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                                <div className="col-4">
+                                    <ul className="img-list-ul">
+                                        {
+                                            imgArr3.map(function (item, index) {
+                                                return (
+                                                        <li key={index} className="img-list-li">
+                                                            <div className="img-list-box">
+                                                                <a href="">
+                                                                    <img src={item} alt="" className="img-list"/>
+                                                                </a>
+                                                            </div>
+                                                            <div className="img-title-box">
+                                                                <a href=""
+                                                                   className="img-title">铁甲、机器人，为什么这类动画和电影总是让我们着迷？</a>
+                                                            </div>
+                                                        </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="main-down">
+                                <div id="read-more-box">
+                                    <a href="" id="read-more">更多精彩内容可在知乎日报应用中查看</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            )
+        }
+    }
+    // 尾部
+    class Footer extends React.Component {
+        render() {
+            return (
+                    <div id="footer">
+                        <div id="footer-box">
+                            <div id="footer-title-box">
+                                <div className="footer-title">
+                                    知乎日报是一款拥有千万用户的资讯类客户端，每日提供来自知乎社区的精选问答，还有国内一流媒体的专栏特稿。
+                                </div>
+                                <div className="footer-title">
+                                    主题日报包括动漫、设计、大公司、游戏、财经、电影、电子音乐、互联网安全等丰富内容，为业内人和资深爱好
+                                    者推荐各领域最精彩文章，满足高质量阅读需求。
+                                </div>
+                                <div className="footer-title">
+                                    在知乎日报，告别浮躁，重获阅读的愉悦。
+                                </div>
+                                <div className="footer-title">© 2017 知乎</div>
+                            </div>
+                            <div id="footer-bottom">
+                                <div id="footer-qr-box">
+                                    <img src="images/32.png" alt="" id="footer-qr"/>
+                                </div>
+                                <div id="footer-qr-title">扫描下载客户端</div>
+                            </div>
+                        </div>
+                    </div>
+
+            )
+        }
+    }
+    // 置顶
+    class Totop extends React.Component {
+        render() {
+            return (
+                    <div id="toTop">
+                        <img src="images/download-5.png" alt="" id="toTop-img"/>
+                    </div>
+
+            )
+        }
+    }
+    // 主页
+    class Home extends React.Component {
+        render() {
+            return (
+                    <div>
+                        <Header/>
+                        <BigImg/>
+                        <Main/>
+                        <Footer/>
+                        <Totop/>
+                    </div>
+            )
+        }
+    }
+    ReactDOM.render(
+            <Home/>,
+            document.getElementById('root')
+    )
+</script>
+</body>
+</html>
