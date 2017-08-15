@@ -1,0 +1,128 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+    <!--<script src="node_modules/react/dist/react.js"></script>-->
+    <!--<script src="node_modules/react-dom/dist/react-dom.js"></script>-->
+    <!--<script src="node_modules/babel-standalone/babel.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="box"></div>-->
+<!--<script type="text/babel">-->
+    <!--// 未登录页面-->
+    <!--class NoLogin extends React.Component {-->
+        <!--render() {-->
+            <!--return <p>请登录</p>-->
+        <!--}-->
+    <!--}-->
+    <!--// 正在登录页面-->
+    <!--class NowLogin extends React.Component {-->
+        <!--render() {-->
+            <!--return (-->
+                    <!--<form>-->
+                        <!--<input type="text" onChange={this.LoginClick2}/><br/>-->
+                        <!--<input type="password"/>-->
+                    <!--</form>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+    <!--// 用户登录成功后页面-->
+    <!--class ReadLogin extends React.Component {-->
+        <!--render() {-->
+            <!--return <p>用户{this.props.value}</p>-->
+        <!--}-->
+    <!--}-->
+    <!--// 判断页面处于什么状态-->
+    <!--class Condition extends React.Component {-->
+        <!--static defaultProps = {-->
+            <!--isLogin: '1'-->
+        <!--};-->
+
+        <!--render() {-->
+            <!--if (this.props.isLogin == '1') {-->
+                <!--return <NoLogin/>-->
+            <!--} else if (this.props.isLogin == '2') {-->
+                <!--return <NowLogin/>-->
+            <!--} else if (this.props.isLogin == '3') {-->
+                <!--return <ReadLogin/>-->
+            <!--}-->
+        <!--}-->
+
+    <!--}-->
+    <!--// 登录一按钮-->
+    <!--class LoginButton1 extends React.Component {-->
+        <!--render() {-->
+            <!--return (-->
+                    <!--<button onClick={this.props.click}>登录</button>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+    <!--// 登录二按钮-->
+    <!--class LoginButton2 extends React.Component {-->
+        <!--render() {-->
+            <!--return (-->
+                    <!--<button onClick={this.props.click}>登录</button>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+    <!--// 退出按钮-->
+    <!--class LoginOutButton extends React.Component {-->
+        <!--render() {-->
+            <!--return (-->
+                    <!--<button onClick={this.props.click}>退出</button>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+    <!--// 控制-->
+    <!--class Control extends React.Component {-->
+        <!--constructor(props) {-->
+            <!--super(props);-->
+            <!--this.state = {-->
+                <!--loginState: '1',-->
+                <!--username: ''-->
+            <!--};-->
+        <!--}-->
+
+        <!--LoginClick1 = () => {-->
+            <!--this.setState({-->
+                <!--loginState: '2'-->
+            <!--})-->
+        <!--};-->
+        <!--LoginClick2 = (e) => {-->
+            <!--this.setState({-->
+                <!--loginState: '3',-->
+                <!--username: e.target.value-->
+            <!--})-->
+        <!--};-->
+        <!--LoginOutClick = () => {-->
+            <!--this.setState({-->
+                <!--loginState: '1'-->
+            <!--})-->
+        <!--};-->
+
+        <!--render() {-->
+            <!--var state = this.state.loginState;-->
+            <!--let button = null;-->
+            <!--if (state === '1') {-->
+                <!--button = <LoginButton1 click={this.LoginClick1}/>-->
+            <!--} else if (state === '2') {-->
+                <!--button = <LoginButton2 click={this.LoginClick2}/>-->
+            <!--} else if (state === '3') {-->
+                <!--button = <LoginOutButton click={this.LoginOutClick}/>-->
+            <!--}-->
+            <!--return (-->
+                    <!--<div>-->
+                        <!--<Condition isLogin={state} value={this.state.username}/>-->
+                        <!--{button}-->
+                    <!--</div>-->
+            <!--)-->
+        <!--}-->
+    <!--}-->
+    <!--ReactDOM.render(-->
+            <!--<Control/>,-->
+            <!--document.getElementById('box')-->
+    <!--)-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

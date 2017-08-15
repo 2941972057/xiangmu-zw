@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/react/dist/react.js"></script>
+    <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <script src="node_modules/babel-standalone/babel.js"></script>
+</head>
+<body>
+<div id="box"></div>
+<script type="text/babel">
+    // 未登录页面
+    class NoLogin extends React.Component {
+        render() {
+            return (
+                    <div>
+                        <p>请登录</p>
+                        <button onClick={this.props.click}>登录</button>
+                    </div>
+            )
+
+        }
+    }
+    // 正在登录页面
+    class NowLogin extends React.Component {
+        render() {
+            return (
+                    <div>
+                        <form>
+                            <input type="text" onChange={this.props.loginUSer}/><br/>
+                            <input type="password"/><br/>
+                            <button onClick={this.props.click}>登录</button>
+                        </form>
+                    </div>
+            )
+        }
+    }
+    // 用户登录成功后页面
+    class ReadLogin extends React.Component {
+        render() {
+            return (
+                    <div>
+                        <p>用户:{this.props.value}</p>
+                        <button onClick={this.props.click}>退出</button>
+                    </div>
+            )
+        }
+    }
+    // 控制
+    class Control extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                loginState: '1',
+                username: ''
+            };
+        }
+
+        loginUSer = (e)=> {
+            this.setState({
+                username: e.target.value
+            });
+        };
+
+        LoginClick1 = () => {
+            this.setState({
+                loginState: '2',
+            })
+        };
+        LoginClick2 = () => {
+            this.setState({
+                loginState: '3',
+            })
+        };
+
+        LoginOutClick = () => {
+            this.setState({
+                loginState: '1'
+            })
+        };
+
+        render() {
+            var state = this.state.loginState;
+            var username = this.state.username;
+            if (state === '1') {
+                return <NoLogin click={this.LoginClick1}/>
+            } else if (state === '2') {
+                return <NowLogin click={this.LoginClick2} loginUSer={this.loginUSer}/>
+            } else if (state === '3') {
+                return (<div>
+                    <ReadLogin click={this.LoginOutClick} value={username}/>
+                </div>)
+            }
+        }
+    }
+    ReactDOM.render(
+            <Control/>,
+            document.getElementById('box')
+    )
+</script>
+</body>
+</html>
